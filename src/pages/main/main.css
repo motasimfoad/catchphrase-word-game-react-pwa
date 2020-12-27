@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.App {
+    font-family: 'Raleway', sans-serif;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* font-size: calc(10px + 2vmin); */
+    color: white;
+  }
+
+  .App-Header{
+    text-align: center;
+    margin-top: 1%;
+  }
+
+  .App-Game-Rules{
+      color: #282c34;
+      background: #282c34;
+  }
+  
+  
