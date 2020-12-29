@@ -10,19 +10,47 @@ function Ingame() {
   const [min, setMin] = useState(state);
   const [millisec, setMillisec] = useState((min*60)*1000);
   const [seconds, setSeconds] = useState(0);
-  const [secToMilli, setSecToMilli] = useState(0);
-  console.log("secons" + secToMilli + " millisec" + millisec);
+  const [secToMilli, setSecToMilli] = useState((min*60)*1000);
+  const [flag, setFlag] = useState(true);
+  console.log("secons" + secToMilli + " millisec" + millisec+ " flag/true" +flag);
+
   useEffect(() => {
-    if ((seconds*1000) <= millisec) {
-      
-      const interval = setInterval(() => {
-        setSeconds(seconds => seconds + 1);
-        setMillisec(secToMilli => seconds*1000);
+
+     const interval = setInterval(() => {
+          setSeconds(seconds => seconds + 1);
+          setSecToMilli(seconds*1000);
       }, 1000);
-      return () => clearInterval(interval);
-    } else{
-      setSeconds("Times Up")
-    }
+
+     const timeout = setTimeout(() => {
+        setFlag(false);
+        clearInterval(interval);
+      }, millisec);
+     
+      return () => clearInterval(timeout);
+     
+      
+
+
+    // setTimeout(() => {
+    //   setFlag(false);
+    //   clearInterval();
+    // }, millisec);
+  
+
+   
+      
+      
+     
+    
+    
+    // else{
+    //   setSeconds("Times Up");
+    //   return () => clearInterval();
+    // }
+
+   
+
+
     }, []);
  
 
