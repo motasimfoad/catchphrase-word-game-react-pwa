@@ -9,17 +9,23 @@
     align-items: center;
     /* justify-content: center; */
     /* font-size: calc(10px + 2vmin); */
-    color: white;
+    /* color: white; */
   }
 
-  .App-Header{
+.App-Header{
     text-align: center;
     margin-top: 1%;
   }
 
-  .App-Game-Rules{
-    color: #282c34;
+.App-Game-Rules{
+    color: #fff;
     background: #282c34;
+    text-transform: uppercase;
+    text-align: center;
   }
+
+.btnPadding{
+  margin: 1%;
+}
   
   

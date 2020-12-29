@@ -1,6 +1,7 @@
 import React from 'react';
 import '../main/main.css';
 import { Button, Container, Row, Alert, ListGroup } from 'react-bootstrap';
+import {  Link } from "react-router-dom";
 
 const year = new Date();
 
@@ -24,7 +25,7 @@ function App() {
                 <ListGroup.Item><small>> Whoever looses a round gets a -1</small></ListGroup.Item>
                 <ListGroup.Item><small>> Every other groups get +1</small></ListGroup.Item>
                 <ListGroup.Item><small>> Which group has most score after certain rounds wins</small></ListGroup.Item>
-                <Button variant="light">Start</Button>
+                <Link to="/pregame"><Button variant="light">Start</Button></Link>
             </ListGroup>
             
         </Row>
