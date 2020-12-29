@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import '../in-game/ingame.css';
-import { Button, Container, Row, Alert, Card, ButtonGroup } from 'react-bootstrap';
+import { Button, Container, Row, Col, Alert, Card, ButtonGroup } from 'react-bootstrap';
 import {useLocation, Link} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLowVision, faEye } from '@fortawesome/free-solid-svg-icons';
 
 const year = new Date();
 
@@ -14,6 +16,10 @@ function Ingame() {
   const [flag, setFlag] = useState(true);
   console.log("secons" + secToMilli + " millisec" + millisec+ " flag/true" +flag);
 
+  function toggle() {
+    setFlag(!flag);
+  }
+
   useEffect(() => {
 
      const interval = setInterval(() => {
@@ -22,35 +28,12 @@ function Ingame() {
       }, 1000);
 
      const timeout = setTimeout(() => {
-        setFlag(false);
-        clearInterval(interval);
+          setFlag(false);
+          clearInterval(interval);
       }, millisec);
      
       return () => clearInterval(timeout);
-     
-      
-
-
-    // setTimeout(() => {
-    //   setFlag(false);
-    //   clearInterval();
-    // }, millisec);
-  
-
-   
-      
-      
-     
     
-    
-    // else{
-    //   setSeconds("Times Up");
-    //   return () => clearInterval();
-    // }
-
-   
-
-
     }, []);
  
 
@@ -65,10 +48,18 @@ function Ingame() {
         </Alert>
         </Row>
         <Row>
-        <Alert className="App-Header" variant="dark">
-          <h3>{seconds}</h3>
-          <small>Timer</small>
-        </Alert>
+          <Col>
+            <Alert className="App-Header" variant="dark">
+            {flag ? <h3>{seconds}</h3>: <h4>hidden</h4>}
+            <small>Timer</small>
+            </Alert>
+          </Col>
+          <Col>
+            <Alert className="App-Header" variant="dark">
+            <Button variant="outline-dark" onClick={toggle}>{flag ? <FontAwesomeIcon icon={faLowVision} />: <FontAwesomeIcon icon={faEye} />}</Button>
+              <small>Visibility</small>
+            </Alert>
+          </Col>
         </Row>
         <Row>
         <Card>
