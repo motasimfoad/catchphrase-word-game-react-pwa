@@ -7,6 +7,10 @@ import { faLowVision, faEye } from '@fortawesome/free-solid-svg-icons';
 
 const year = new Date();
 
+
+const myObj = [ "Ford", "BMW", "Fiat" ] 
+  
+
 function Ingame() {
   const { state } = useLocation();
   const [min, setMin] = useState(state);
@@ -15,9 +19,23 @@ function Ingame() {
   const [secToMilli, setSecToMilli] = useState((min*60)*1000);
   const [flag, setFlag] = useState(true);
   console.log("secons" + secToMilli + " millisec" + millisec+ " flag/true" +flag);
+  const [rand, setRand] =  useState(Math.random() * 2);
+  const [temp, setTemp] = useState(Math.floor(rand));
 
   function toggle() {
     setFlag(!flag);
+  }
+
+  function word() {
+   
+    if (rand == temp) {
+      word();
+    } else {
+      setTemp ( Math.floor(rand));
+      console.log(Math.floor(rand));
+    }
+    
+    
   }
 
   useEffect(() => {
@@ -50,13 +68,13 @@ function Ingame() {
         <Row>
           <Col>
             <Alert className="App-Header" variant="dark">
-            {flag ? <h3>{seconds}</h3>: <h4>hidden</h4>}
-            <small>Timer</small>
+              {flag ? <h3>{seconds}</h3>: <h4>hidden</h4>}
+              <small>Timer</small>
             </Alert>
           </Col>
           <Col>
             <Alert className="App-Header" variant="dark">
-            <Button variant="outline-dark" onClick={toggle}>{flag ? <FontAwesomeIcon icon={faLowVision} />: <FontAwesomeIcon icon={faEye} />}</Button>
+              <Button variant="outline-dark" onClick={toggle}>{flag ? <FontAwesomeIcon icon={faLowVision} />: <FontAwesomeIcon icon={faEye} />}</Button>
               <small>Visibility</small>
             </Alert>
           </Col>
@@ -64,11 +82,11 @@ function Ingame() {
         <Row>
         <Card>
           <Card.Body className="App-Game-Rules">
-           Word
+           {myObj[0]}
           </Card.Body>
           <Card.Footer>
             <ButtonGroup aria-label="Basic example">
-              <Button variant="warning" className="btnPadding">Next</Button>
+              <Button variant="warning" className="btnPadding" onClick={word}>Next</Button>
               <Link to="/pregame"><Button variant="danger" className="btnPadding">Reset</Button></Link>
             </ButtonGroup>   
           </Card.Footer>
