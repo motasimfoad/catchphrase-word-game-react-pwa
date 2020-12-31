@@ -47,9 +47,7 @@ function Ingame() {
           setFlag(false);
           clearInterval(interval);
       }, millisec);
-      
       return () => clearTimeout(timeout);
-      
     }, []);
  
     return (
