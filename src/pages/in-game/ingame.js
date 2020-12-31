@@ -4,9 +4,7 @@ import { Button, Container, Row, Col, Alert, Card, ButtonGroup } from 'react-boo
 import {useLocation, Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLowVision, faEye } from '@fortawesome/free-solid-svg-icons';
-
-
-const year = new Date();
+import Footer from "../../components/footer/footer.js";
 
 function Ingame() {
   const [myObj, setMyObj] = useState(["a","b","c"]);
@@ -35,9 +33,7 @@ function Ingame() {
 
   function word() {
     setRand(Math.round(Math.random() * (myObj.length-1)));
-    console.log("temp "+ temp+ " random "+ rand);
       setTemp ( Math.round(rand));
-      console.log(Math.round(rand));
   }
 
   useEffect(() => {
@@ -51,9 +47,9 @@ function Ingame() {
           setFlag(false);
           clearInterval(interval);
       }, millisec);
-     
-      return () => clearInterval(timeout);
-    
+      
+      return () => clearTimeout(timeout);
+      
     }, []);
  
     return (
@@ -91,9 +87,7 @@ function Ingame() {
               </Card.Footer>
             </Card>
             </Row>
-            <Row>
-            &copy; {year.getFullYear()}<a href="https://motasimfoad.com" target="_blank" rel="noreferrer">&nbsp; Motasim Foad</a>
-            </Row>
+           <Footer />
         </Container>
   );
 }

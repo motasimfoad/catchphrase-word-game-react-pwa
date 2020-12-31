@@ -2,8 +2,7 @@ import React from 'react';
 import '../main/main.css';
 import { Button, Container, Row, Alert, ListGroup } from 'react-bootstrap';
 import {  Link } from "react-router-dom";
-
-const year = new Date();
+import Footer from "../../components/footer/footer.js";
 
 function App() {
   return (
@@ -27,11 +26,8 @@ function App() {
                 <ListGroup.Item><small>> Which group has most score after certain rounds wins</small></ListGroup.Item>
                 <Link to="/pregame"><Button variant="light">Start</Button></Link>
             </ListGroup>
-            
         </Row>
-        <Row>
-        &copy; {year.getFullYear()}<a href="https://motasimfoad.com" target="_blank" rel="noreferrer">&nbsp; Motasim Foad</a>
-        </Row>
+        <Footer />
     </Container>
   );
 }

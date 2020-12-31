@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import '../pre-game/pregame.css';
 import { Button, Container, Row, Alert, Form } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import Ingame from '../in-game/ingame';
-
-const year = new Date();
+import Footer from "../../components/footer/footer.js";
 
 function Pregame() {
 
@@ -17,7 +15,6 @@ function Pregame() {
       } else {
       console.log("lala");
       }
-     
   }
 
   return (
@@ -44,9 +41,7 @@ function Pregame() {
           </Button>
         </Form>
         </Row>
-        <Row>
-        &copy; {year.getFullYear()}<a href="https://motasimfoad.com" target="_blank" rel="noreferrer">&nbsp; Motasim Foad</a>
-        </Row>
+       <Footer />
     </Container>
   );
 }
