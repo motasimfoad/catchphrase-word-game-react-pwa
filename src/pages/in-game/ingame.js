@@ -12,13 +12,13 @@ function Ingame() {
   const [min, setMin] = useState(state);
   const [millisec, setMillisec] = useState((min*60)*1000);
   const [seconds, setSeconds] = useState(0);
-  const [secToMilli, setSecToMilli] = useState((min*60)*1000);
+  const [secToMilli, setSecToMilli] = useState(seconds*1000);
   const [flag, setFlag] = useState(true);
   const [rand, setRand] =  useState(Math.round(Math.random() * (myObj.length-1)));
   const [temp, setTemp] = useState(rand);
   
   const getData=()=>{
-    fetch('http://api.motasimfoad.com/catch_phrase/catch_phrase.json'
+    fetch('https://api.motasimfoad.com/catch_phrase/catch_phrase.json'
     ).then(function(response){
         return response.json();
       })
@@ -36,13 +36,39 @@ function Ingame() {
       setTemp ( Math.round(rand));
   }
 
+  function getPercentageChange(){
+    var secToMs = (seconds*1000);
+    var decreaseValue = millisec - secToMs;
+    var temp = (decreaseValue / millisec) * 100;
+    temp = Math.round(temp);
+    console.log(temp);
+
+    switch (temp) {
+      case 80:
+        console.log("80");
+        break;
+
+      case 70:
+        console.log("60");
+        break;
+    
+      case temp>40:
+        console.log("40");
+        break;    
+
+      default:
+        console.log("deafult");
+        break;
+    }
+    // return (decreaseValue / oldNumber) * 100;
+}
+
+getPercentageChange();
   useEffect(() => {
     getData();
      const interval = setInterval(() => {
           setSeconds(seconds => seconds + 1);
-          setSecToMilli(seconds*1000);
       }, 1000);
-
      const timeout = setTimeout(() => {
           setFlag(false);
           clearInterval(interval);
