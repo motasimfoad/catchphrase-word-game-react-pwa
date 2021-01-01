@@ -5,72 +5,55 @@ import {useLocation, Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLowVision, faEye } from '@fortawesome/free-solid-svg-icons';
 import Footer from "../../components/footer/footer.js";
+import TimerSound from "../../assets/audio/timer.mp3";
+import EndTimerSound from "../../assets/audio/bomb.mp3";
 
 function Ingame() {
   const [myObj, setMyObj] = useState(["a","b","c"]);
   const { state } = useLocation();
-  const [min, setMin] = useState(state);
-  const [millisec, setMillisec] = useState((min*60)*1000);
+  const [min] = useState(state);
+  const [millisec] = useState((min*60)*1000);
   const [seconds, setSeconds] = useState(0);
-  const [secToMilli, setSecToMilli] = useState(seconds*1000);
   const [flag, setFlag] = useState(true);
   const [rand, setRand] =  useState(Math.round(Math.random() * (myObj.length-1)));
   const [temp, setTemp] = useState(rand);
-  
+  const [audio] = useState(new Audio(TimerSound));
+  const [endAudio] = useState(new Audio(EndTimerSound));
+  const [gameStatus, setGameStatus] = useState(false);
+
   const getData=()=>{
     fetch('https://api.motasimfoad.com/catch_phrase/catch_phrase.json'
     ).then(function(response){
         return response.json();
       })
-      .then(function(myJson) {
+     .then(function(myJson) {
         setMyObj(myJson);
       });
   }
 
   function toggle() {
-    setFlag(!flag);
+     setFlag(!flag);
   }
 
   function word() {
-    setRand(Math.round(Math.random() * (myObj.length-1)));
-      setTemp ( Math.round(rand));
-  }
+     setRand(Math.round(Math.random() * (myObj.length-1)));
+     setTemp ( Math.round(rand));
+    }
 
   function getPercentageChange(){
-    var secToMs = (seconds*1000);
-    var decreaseValue = millisec - secToMs;
-    var temp = (decreaseValue / millisec) * 100;
-    temp = Math.round(temp);
-    console.log(temp);
+      audio.play();
+  }
 
-    switch (temp) {
-      case 80:
-        console.log("80");
-        break;
-
-      case 70:
-        console.log("60");
-        break;
-    
-      case temp>40:
-        console.log("40");
-        break;    
-
-      default:
-        console.log("deafult");
-        break;
-    }
-    // return (decreaseValue / oldNumber) * 100;
-}
-
-getPercentageChange();
+  getPercentageChange();
+  
   useEffect(() => {
-    getData();
+     getData();
      const interval = setInterval(() => {
           setSeconds(seconds => seconds + 1);
       }, 1000);
      const timeout = setTimeout(() => {
-          setFlag(false);
+          endAudio.play();
+          setGameStatus(true);
           clearInterval(interval);
       }, millisec);
       return () => clearTimeout(timeout);
@@ -105,7 +88,7 @@ getPercentageChange();
               </Card.Body>
               <Card.Footer>
                 <ButtonGroup aria-label="Basic example">
-                  <Button variant="warning" className="btnPadding" onClick={word}>Next</Button>
+                  <Button variant="warning" className="btnPadding" onClick={word} disabled={gameStatus}>Next</Button>
                   <Link to="/pregame"><Button variant="danger" className="btnPadding">Reset</Button></Link>
                 </ButtonGroup>   
               </Card.Footer>
