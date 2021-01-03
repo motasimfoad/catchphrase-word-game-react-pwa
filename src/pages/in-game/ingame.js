@@ -8,7 +8,11 @@ import Footer from "../../components/footer/footer.js";
 import TimerSound from "../../assets/audio/timer.mp3";
 import EndTimerSound from "../../assets/audio/bomb.mp3";
 import Header from "../../components/header/header.js";
-import ProgressBar from 'react-customizable-progressbar'
+import ProgressBar from 'react-customizable-progressbar';
+import ReactGa from 'react-ga';
+
+ReactGa.initialize("UA-154721739-1");
+ReactGa.pageview('catchphrase.motasimfoad.com - Ingame Screen');
 
 function Ingame() {
   const [myObj, setMyObj] = useState(["a","b","c"]);

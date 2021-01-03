@@ -5,6 +5,10 @@ import Footer from "../../components/footer/footer.js";
 import Header from '../../components/header/header.js';
 import Mbc from '../../components/main-body-content/mbc.js';
 import {  Link } from "react-router-dom";
+import ReactGa from 'react-ga';
+
+ReactGa.initialize("UA-154721739-1");
+ReactGa.pageview('catchphrase.motasimfoad.com - Rules Screen');
 
 function App() {
   return (

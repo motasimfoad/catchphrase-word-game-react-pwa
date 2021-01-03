@@ -4,6 +4,10 @@ import { Button, Container, Row, Form } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Footer from "../../components/footer/footer.js";
 import  Header  from "../../components/header/header.js";
+import ReactGa from 'react-ga';
+
+ReactGa.initialize("UA-154721739-1");
+ReactGa.pageview('catchphrase.motasimfoad.com - Pregame Screen');
 
 function Pregame() {
   const [num, setNum] = useState("");
