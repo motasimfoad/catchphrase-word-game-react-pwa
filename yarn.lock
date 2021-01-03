@@ -1454,6 +1454,11 @@
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.6.0.tgz"
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
 
+"@ramonak/react-progress-bar@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ramonak/react-progress-bar/-/react-progress-bar-2.0.0.tgz#7928331605610495623d40f4a98ec2be754acc6c"
+  integrity sha512-AMK9wXfXV2QAC+aQOoqP/0WDA8phvkc+GKPvAqNZcgu0msic3aMAnFl0BjvBXdaxc6HgvGvKF5JC5rygOKe/xw==
+
 "@restart/context@^2.1.4":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@restart/context/-/context-2.1.4.tgz"
@@ -9077,6 +9082,11 @@ react-bootstrap@^1.4.0:
     react-transition-group "^4.4.1"
     uncontrollable "^7.0.0"
     warning "^4.0.3"
+
+react-customizable-progressbar@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-customizable-progressbar/-/react-customizable-progressbar-1.0.2.tgz#5f231a4e47638ab203ebe3fa0382cff2142ac99b"
+  integrity sha512-PJTNgeXT/sGGN7U9ahYGqpJEX1SzkcMOhzRBdO5npkMJDbZwyXq4Elp7C2brEhRlItEnaTPzts+CFAFzosmh/w==
 
 react-dev-utils@^11.0.1:
   version "11.0.1"

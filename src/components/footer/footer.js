@@ -5,7 +5,7 @@ const year = new Date();
 
 function Footer() {
   return (
-        <Row style={{marginTop:"5%"}}>
+        <Row style={{marginTop:"4%"}}>
         &copy; {year.getFullYear()}<a href="https://motasimfoad.com" target="_blank" rel="noreferrer">&nbsp; Motasim Foad</a>
         </Row>
   );
