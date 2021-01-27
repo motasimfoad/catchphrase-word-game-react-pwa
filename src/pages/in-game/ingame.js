@@ -15,35 +15,33 @@ ReactGa.initialize("UA-154721739-1");
 ReactGa.pageview('catchphrase.motasimfoad.com - Ingame Screen');
 
 function Ingame() {
-  const [myObj, setMyObj] = useState(["a","b","c"]);
+  const [myObj, setMyObj] = useState("Tap next");
+  const getData=()=>{
+    fetch('https://api.motasimfoad.com/catch_phrase/catch_phrase.json'
+    ).then(response => response.json())
+     .then((jsonData) => {
+        setMyObj(jsonData);
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
   const { state } = useLocation();
   const [min] = useState(state);
   const [millisec] = useState((min*60)*1000);
   const [seconds, setSeconds] = useState(0);
   const [flag, setFlag] = useState(true);
   const [rand, setRand] =  useState(Math.round(Math.random() * (myObj.length-1)));
-  const [temp, setTemp] = useState(rand);
   const [audio] = useState(new Audio(TimerSound));
   const [endAudio] = useState(new Audio(EndTimerSound));
   const [gameStatus, setGameStatus] = useState(false);
   
-  const getData=()=>{
-    fetch('https://api.motasimfoad.com/catch_phrase/catch_phrase.json'
-    ).then(function(response){
-        return response.json();
-      })
-     .then(function(myJson) {
-        setMyObj(myJson);
-      });
-  }
-
   function toggle() {
      setFlag(!flag);
   }
 
   function word() {
      setRand(Math.round(Math.random() * (myObj.length-1)));
-     setTemp ( Math.round(rand));
     }
 
   function getPercentageChange(){
@@ -104,7 +102,7 @@ function Ingame() {
                   trackStrokeLinecap="butt"
               >
                 <div className="indicator">
-                <div>{myObj[temp]}</div>
+                <div>{myObj[rand]}</div>
                 </div>
               </ProgressBar>
               </Card.Body>
