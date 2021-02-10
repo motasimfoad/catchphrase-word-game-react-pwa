@@ -22,8 +22,8 @@ function MyVerticallyCenteredModal(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Body style={{textAlign:"center"}}>
-        <h4>Sure to <strong>RESET/RESTART</strong> ?</h4>
+    <Modal.Body style={{textAlign:"center"}}>
+        <h4>Confirm to <strong>RESET/RESTART</strong> ?</h4>
         <Button variant="success" onClick={props.onHide}>No</Button>
         <Link to="/pregame">
           <Button variant="danger" className="btnPadding">Reset</Button>
