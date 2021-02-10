@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Alert, Col} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faStopwatch, faLightbulb, faHeadSideCoughSlash, faBomb, faTrophy, faCrown, faCannabis } from '@fortawesome/free-solid-svg-icons';
+import {Link} from "react-router-dom";
 
 function Mbc() {
   return (
@@ -10,7 +11,7 @@ function Mbc() {
           <Col>
             <Alert variant="secondery" style={{textAlign:"center"}}>
               <div style={{fontSize:"2em"}}>
-                <FontAwesomeIcon icon={faStopwatch} /><br />
+              <Link to="/pregame"><FontAwesomeIcon icon={faStopwatch} style={{color:"white"}}/></Link>
               </div>
                 <small>set timer</small>
             </Alert>
