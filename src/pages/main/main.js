@@ -4,7 +4,7 @@ import { Button, Container, Row } from 'react-bootstrap';
 import Footer from "../../components/footer/footer.js";
 import Header from '../../components/header/header.js';
 import Mbc from '../../components/main-body-content/mbc.js';
-import {  Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import ReactGa from 'react-ga';
 
 ReactGa.initialize("UA-154721739-1");

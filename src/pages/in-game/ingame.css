@@ -27,5 +27,16 @@
 .btnPadding{
   margin: 1%;
 }
-  
-  
+
+.indicator{
+  color: #CCFF90;
+  font: 1.5em sans-serif;
+}
+
+.btngroup{
+  margin: 0 auto;
+}
+
+.progressBar{
+  margin: 0 auto;
+}
