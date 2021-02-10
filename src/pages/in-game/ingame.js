@@ -86,7 +86,7 @@ function Ingame() {
             <Row>
             <Card>
               <Card.Body className="App-Game-Rules">
-              <ProgressBar
+              {flag ? <ProgressBar
                   radius={40}
                   progress={getPercentageChange()}
                   cut={120}
@@ -100,13 +100,14 @@ function Ingame() {
                   strokeLinecap="butt"
                   trackStrokeWidth={10}
                   trackStrokeLinecap="butt"
+                  className="progressBar"
               >
-                <div className="indicator">
+              </ProgressBar>: <h6>Hidden</h6>}
+              <div className="indicator">
                 <div>{myObj[rand]}</div>
-                </div>
-              </ProgressBar>
+              </div>
               </Card.Body>
-              <Card.Footer>
+              <Card.Footer className="btngroup">
                 <ButtonGroup aria-label="Basic example">
                   <Button variant="warning" className="btnPadding" onClick={word} disabled={gameStatus}>Next</Button>
                   <Link to="/pregame"><Button variant="danger" className="btnPadding">Reset</Button></Link>
